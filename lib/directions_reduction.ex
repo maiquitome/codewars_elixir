@@ -21,8 +21,8 @@ defmodule DirectionsReduction do
 
     # Reduces the given list from the right with a function.
     List.foldr(directions, initial_acc, fn direction, acc ->
-      direction |> IO.inspect(label: "direction")
-      acc |> IO.inspect(label: "acc")
+      # direction |> IO.inspect(label: "direction")
+      # acc |> IO.inspect(label: "acc")
       reduce(direction, acc)
     end)
   end
@@ -32,28 +32,28 @@ defmodule DirectionsReduction do
   # direction: "WEST"
   # acc: []
   # do: ["WEST"]
-  defp reduce(direction, [] = _acc), do: [direction] |> IO.inspect(label: "do")
+  defp reduce(direction, [] = _acc), do: [direction] #|> IO.inspect(label: "do")
 
   # ****** END ******
   # 7.
   # direction: "NORTH"
   # acc: ["SOUTH", "WEST"]
   # do: ["WEST"]
-  defp reduce("NORTH", ["SOUTH" | tail] = _acc), do: tail |> IO.inspect(label: "do")
+  defp reduce("NORTH", ["SOUTH" | tail] = _acc), do: tail #|> IO.inspect(label: "do")
 
   # 5.
   # direction: "SOUTH"
   # acc: ["NORTH", "WEST"]
   # do: ["WEST"]
-  defp reduce("SOUTH", ["NORTH" | tail] = _acc), do: tail |> IO.inspect(label: "do")
+  defp reduce("SOUTH", ["NORTH" | tail] = _acc), do: tail #|> IO.inspect(label: "do")
 
-  defp reduce("WEST", ["EAST" | tail] = _acc), do: tail |> IO.inspect(label: "do")
+  defp reduce("WEST", ["EAST" | tail] = _acc), do: tail #|> IO.inspect(label: "do")
 
   # 4.
   # direction: "EAST"
   # acc: ["WEST", "NORTH", "WEST"]
   # do: ["NORTH", "WEST"]
-  defp reduce("EAST", ["WEST" | tail] = _acc), do: tail |> IO.inspect(label: "do")
+  defp reduce("EAST", ["WEST" | tail] = _acc), do: tail #|> IO.inspect(label: "do")
 
   # 2.
   # direction: "NORTH"
@@ -69,5 +69,5 @@ defmodule DirectionsReduction do
   # direction: "SOUTH"
   # acc: ["WEST"]
   # do: ["SOUTH", "WEST"]
-  defp reduce(direction, [next | tail] = _acc), do: [direction, next | tail] |> IO.inspect(label: "do")
+  defp reduce(direction, [next | tail] = _acc), do: [direction, next | tail] #|> IO.inspect(label: "do")
 end
